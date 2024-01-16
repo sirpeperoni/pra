@@ -1,18 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import Helmet from "../components/Helmet";
 import Slider from "../components/Slider";
-import Section, {SectionTitle, SectionBody} from "../components/Section";
-import PolicyCard from "../components/PolicyCard";
-import policy from "../assets/fake-data/policy";
-import Grid from "../components/Grid";
-import ProductCard from "../components/ProductCard";
+
 
 import sliderData from "../assets/fake-data/slider";
-import productData from "../assets/fake-data/products";
 
-import banner from '../assets/images/banner.png'
+import Banner from "../components/Banner";
+import Policy from "../components/Policy";
+import Cards from "../components/Cards";
 
 const Home = () => {
     return(
@@ -26,129 +22,32 @@ const Home = () => {
             />
             {/*end slider*/}
             {/*policy section*/}
-            <Section>
-                <SectionBody>
-                    <Grid
-                        col={4}
-                        mdCol={2}
-                        smCol={1}
-                        gap={20}
-                    >
-                        {
-                            policy.map((item, index) => <Link key={index} to="/policy">
-                                <PolicyCard
-                                    name={item.name}
-                                    description={item.description}
-                                    icon={item.icon}
-                                />
-                            </Link>)
-                        }
-                    </Grid>
-
-                </SectionBody>
-            </Section>
+            <Policy/>
             {/*end policy section*/}
 
             {/*best selling section*/}
-            <Section>  
-                <SectionTitle>
-                    Самые продаваемые товары недели
-                </SectionTitle>
-                <SectionBody>
-                    <Grid
-                            col={4}
-                            mdCol={2}
-                            smCol={1}
-                            gap={20}
-                        >
-                        {
-                            productData.getProducts(4).map((item, index) => (
-                                <ProductCard
-                                    key={index}
-                                    img01={item.image01}
-                                    img02={item.image02}
-                                    name={item.title}
-                                    price={Number(item.price)}
-                                    slug={item.slug}
-                                />
-                            ))
-                        }
-                    </Grid>
-                </SectionBody>
-            </Section>
+            <Cards
+                title={"Самые продаваемые товары недели"}
+                amount={4}
+            />
             {/*end best selling section*/}
             
             {/*NEW ZAVOZ section*/}
-            <Section>  
-                <SectionTitle>
-                    Новые товары
-                </SectionTitle>
-                <SectionBody>
-                    <Grid
-                            col={4}
-                            mdCol={2}
-                            smCol={1}
-                            gap={20}
-                        >
-                        {
-                            productData.getProducts(8).map((item, index) => (
-                                <ProductCard
-                                    key={index}
-                                    img01={item.image01}
-                                    img02={item.image02}
-                                    name={item.title}
-                                    price={Number(item.price)}
-                                    slug={item.slug}
-                                />
-                            ))
-                        }
-                    </Grid>
-                </SectionBody>
-            </Section>
+            <Cards
+                title={"Новые товары"}
+                amount={8}
+            />
             {/*end NEW ZAVOZ section*/}
 
-
-
             {/*banner*/}
-
-            <Section>
-                <SectionBody>
-                    <Link to="/catalog">
-                        <img src={banner} alt="" />
-                    </Link>
-                </SectionBody>
-            </Section>        
-
+            <Banner/>
             {/*end banner */}
 
-
             {/*popular products section*/}
-            <Section>  
-                <SectionTitle>
-                    Популярное
-                </SectionTitle>
-                <SectionBody>
-                    <Grid
-                            col={4}
-                            mdCol={2}
-                            smCol={1}
-                            gap={20}
-                        >
-                        {
-                            productData.getProducts(12).map((item, index) => (
-                                <ProductCard
-                                    key={index}
-                                    img01={item.image01}
-                                    img02={item.image02}
-                                    name={item.title}
-                                    price={Number(item.price)}
-                                    slug={item.slug}
-                                />
-                            ))
-                        }
-                    </Grid>
-                </SectionBody>
-            </Section>
+            <Cards
+                title={"Популярное"}
+                amount={12}
+            />
             {/*end popular products section*/}
         </Helmet>
     )

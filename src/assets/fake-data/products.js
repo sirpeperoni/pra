@@ -261,6 +261,7 @@ const productData = {
     getAllProducts,
     getProducts,
     getProductBySlug,
+    getCartItemsInfo,
 }
 
 

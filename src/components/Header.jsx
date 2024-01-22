@@ -14,14 +14,6 @@ const mainNav = [
     display: "Каталог",
     path: "/catalog"
   },
-  {
-    display: "Акссесуары",
-    path: "/accessories"
-  },
-  {
-    display: "Контакт",
-    path: "/contact"
-  }
 ]
 
 const Header = () => {

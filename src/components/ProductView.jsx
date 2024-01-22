@@ -1,14 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 
 import { withRouter } from 'react-router'
+
+import { useDispatch } from 'react-redux'
+
+import { enqueueSnackbar } from 'notistack';
+
+
+
+import { addItem } from '../redux/shopping-cart/cartItemsSlide'
+import { remove } from '../redux/product-modal/productModalSlide'
 
 import Button from './Button'
 import numberWithCommas from '../utils/numberWithCommas'
 
 const ProductView = props => {
+
+    const dispatch = useDispatch()
   
-    const product = props.product
+    let product = props.product
+
+    if(product === undefined) product = {
+        price: 0,
+        title: "",
+        colors: [],
+        size: []
+    }
   
     const [previewImg, setPreviewImg] = useState(product.image01)
 
@@ -19,6 +37,8 @@ const ProductView = props => {
     const [size, setSize] = useState(undefined)
 
     const [quantity, setQuantity] = useState(1)
+
+
 
     const updateQuantity = (type) => {
         if (type === 'plus') {
@@ -35,15 +55,17 @@ const ProductView = props => {
         setSize(undefined)
     }, [product])
 
+    
+
     const check = () => {
         let res = true
 
         if(color === undefined){
-            alert("Пожалуйста, выберите цвет!")
+            enqueueSnackbar('Пожалуйста, выберите цвет!', { variant: 'error' });
             return
         }
         if (size === undefined) {
-            alert('Пожалуйста, выберите размер!')
+            enqueueSnackbar('Пожалуйста, выберите размер!', { variant: 'error' });
             return false
         }
 
@@ -51,12 +73,40 @@ const ProductView = props => {
     }
 
     const addToCart = () => {
-        if (check()) console.log({color, size, quantity})
+        if (check()) {
+            let newItem = {
+                slug: product.slug,
+                color: color,
+                size: size,
+                price: product.price,
+                quantity: quantity
+            }
+            if (dispatch(addItem(newItem))) {
+                enqueueSnackbar('Товар добавлен в корзину!', { variant: 'success' });
+            } else {
+                enqueueSnackbar('Ошибка!', { variant: 'error' });
+            }
+        }
     }
 
     const goToCart = () => {
-        if(check()) props.history.push('/cart')
+        if (check()) {
+            let newItem = {
+                slug: product.slug,
+                color: color,
+                size: size,
+                price: product.price,
+                quantity: quantity
+            }
+            if (dispatch(addItem(newItem))) {
+                dispatch(remove())
+                props.history.push('/cart')
+            } else {
+                alert('Fail')
+            }
+        }
     }
+
 
     return (
     <div className="product">
@@ -143,12 +193,12 @@ const ProductView = props => {
                     </div>
                 </div>
                 <div className="product__info__item">
-                    <Button onClick={() => addToCart()}>
-                        Добавить в корзину
-                    </Button>
-                    <Button onClick={() => goToCart()}>
-                        Купить сейчас
-                    </Button>
+                        <Button onClick={() => addToCart()}>
+                            Добавить в корзину
+                        </Button>
+                        <Button onClick={() => goToCart()}>
+                            Купить сейчас
+                        </Button>
                 </div>
             </div>
             
@@ -176,7 +226,7 @@ const ProductView = props => {
 }
 
 ProductView.propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object
 }
 
 export default withRouter(ProductView)

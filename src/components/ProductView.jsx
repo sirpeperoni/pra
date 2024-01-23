@@ -100,9 +100,10 @@ const ProductView = props => {
             }
             if (dispatch(addItem(newItem))) {
                 dispatch(remove())
+                enqueueSnackbar('Товар добавлен в корзину!', { variant: 'success' });
                 props.history.push('/cart')
             } else {
-                alert('Fail')
+                enqueueSnackbar('Ошибка!', { variant: 'error' });
             }
         }
     }

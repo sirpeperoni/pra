@@ -207,7 +207,7 @@ const ProductView = props => {
                 <div className="product-description__title">
                     Информация о товаре
                 </div>
-                <div className="product-description__content" dangerouslySetInnerHTML={{__html: product.description}}></div>
+                <div className="product-description__content">{product.description}</div>
                 <div className="product-description__toggle" onClick={() => setDescriptionExpand(!descriptionExpand)}>
                     <Button size="sm">
                         {

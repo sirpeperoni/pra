@@ -2,10 +2,10 @@ import React from 'react'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
-import Header from './Header'
-import Footer from './Footer'
+import Header from './Home/Header/Header'
+import Footer from './Home/Footer/Footer'
 
-import ProductViewModal from './ProductViewModal'
+import ProductViewModal from './Product/ProductViewModal'
 
 import AppRoutes from '../routes/AppRoutes'
 

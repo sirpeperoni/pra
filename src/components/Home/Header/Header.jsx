@@ -2,19 +2,10 @@ import React, { useEffect, useRef } from 'react'
 
 import { Link, useLocation } from 'react-router-dom'
 
-import logo from '../assets/images/Logo-2.png'
+import logo from '../../../assets/images/Logo-2.png'
 
+import mainNav from './mainNav'
 
-const mainNav = [
-  {
-    display: "Домашняя страница",
-    path: "/"
-  },
-  {
-    display: "Каталог",
-    path: "/catalog"
-  },
-]
 
 const Header = () => {
 

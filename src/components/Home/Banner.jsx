@@ -1,7 +1,7 @@
 import React from "react";
-import Section, { SectionBody} from "../components/Section";
+import Section, { SectionBody} from "../Section";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import banner from '../assets/images/banner.png'
+import banner from '../../assets/images/banner.png'
 
 const Banner = () => {
     return (

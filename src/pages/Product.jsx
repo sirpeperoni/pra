@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import Helmet from '../components/Helmet'
 import Section, { SectionBody, SectionTitle } from '../components/Section'
 import Cards from '../components/Cards'
-import ProductView from '../components/ProductView'
+import ProductView from '../components/Product/ProductView'
 
 
 import productData from '../assets/fake-data/products'

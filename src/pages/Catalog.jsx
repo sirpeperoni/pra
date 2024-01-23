@@ -1,15 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 import Helmet from '../components/Helmet'
-import Grid from '../components/Grid'
-import ProductCard from '../components/ProductCard'
 import productData from '../assets/fake-data/products'
 import category from '../assets/fake-data/category'
-import CheckBox from '../components/CheckBox'
+import CheckBox from '../components/Catalog/CheckBox'
 import colors from '../assets/fake-data/product-color'
 import size from '../assets/fake-data/product-size'
 import Button from '../components/Button'
-import InfinityList from '../components/InfinityList'
+import InfinityList from '../components/Catalog/InfinityList'
 
 const Catalog = () => {
 

@@ -2,46 +2,13 @@ import React from 'react'
 
 import {Link} from 'react-router-dom'
 
-import Grid from './Grid'
+import Grid from '../../Grid'
 
-import logo from '../assets/images/Logo-2.png'
+import logo from '../../../assets/images/Logo-2.png'
+import footerAboutLinks from './footerAboutLinks'
+import footerCustomerLinks from './footerCustomerLinks'
 
-const footerAboutLinks = [
-  {
-    display: "О нас",
-    path: "/about"
-  },
-  {
-    display: "Контакт",
-    path: "/about"
-  },
-  {
-    display: "Вакансии",
-    path: "/about"
-  },
-  {
-    display: "Новости",
-    path: "/about"
-  },
-  {
-    display: "Сеть магазинов",
-    path: "/about"
-  }
-]
-const footerCustomerLinks = [
-  {
-      display: "Политика возврата",
-      path: "/about"
-  },
-  {
-      display: "Гарантийная политика",
-      path: "/about"
-  },
-  {
-      display: "Политика возврата",
-      path: "/about"
-  }
-]
+
 const Footer = () => {
   return (
     <footer className='footer'>

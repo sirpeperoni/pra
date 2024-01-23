@@ -1,13 +1,13 @@
 import React from "react";
 
 import Helmet from "../components/Helmet";
-import Slider from "../components/Slider";
+import Slider from "../components/Home/Slider";
 
 
 import sliderData from "../assets/fake-data/slider";
 
-import Banner from "../components/Banner";
-import Policy from "../components/Policy";
+import Banner from "../components/Home/Banner";
+import Policy from "../components/Home/Policy";
 import Cards from "../components/Cards";
 
 const Home = () => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ProductCard from "../components/ProductCard";
-import Section, {SectionTitle, SectionBody} from "../components/Section";
-import Grid from "../components/Grid";
+import ProductCard from "./ProductCard";
+import Section, {SectionTitle, SectionBody} from "./Section";
+import Grid from "./Grid";
 import productData from "../assets/fake-data/products";
 
 const Cards = props => {

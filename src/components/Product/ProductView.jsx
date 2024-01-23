@@ -9,11 +9,11 @@ import { enqueueSnackbar } from 'notistack';
 
 
 
-import { addItem } from '../redux/shopping-cart/cartItemsSlide'
-import { remove } from '../redux/product-modal/productModalSlide'
+import { addItem } from '../../redux/shopping-cart/cartItemsSlide'
+import { remove } from '../../redux/product-modal/productModalSlide'
 
-import Button from './Button'
-import numberWithCommas from '../utils/numberWithCommas'
+import Button from '../Button'
+import numberWithCommas from '../../utils/numberWithCommas'
 
 const ProductView = props => {
 

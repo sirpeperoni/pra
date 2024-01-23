@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import ProductView from './ProductView'
-import Button from './Button'
+import Button from '../Button'
 
-import { remove } from '../redux/product-modal/productModalSlide'
+import { remove } from '../../redux/product-modal/productModalSlide'
 
-import productData from '../assets/fake-data/products'
+import productData from '../../assets/fake-data/products'
 
 const ProductViewModal = () => {
 

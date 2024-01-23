@@ -1,8 +1,8 @@
 import React from "react";
-import Section, { SectionBody} from "../components/Section";
+import Section, { SectionBody} from "../Section";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import Grid from "../components/Grid";
-import policy from "../assets/fake-data/policy";
+import Grid from "../Grid";
+import policy from "../../assets/fake-data/policy";
 import PolicyCard from "./PolicyCard";
 
 const Policy = () => {

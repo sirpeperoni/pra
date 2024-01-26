@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Link, useLocation } from 'react-router-dom'
 
@@ -7,10 +7,18 @@ import logo from '../../../assets/images/Logo-2.png'
 import mainNav from './mainNav'
 
 
+import Count from './Count'
+
+
+
+
 const Header = () => {
 
   const { pathname } = useLocation()
   const activeNav = mainNav.findIndex(e => e.path === pathname)
+
+
+
 
   const headerRef = useRef(null)
 
@@ -63,7 +71,11 @@ const Header = () => {
                     </div>
                     <div className="header__menu__item header__menu__right__item">
                       <Link to="/cart">
-                        <i className="bx bx-shopping-bag"></i>
+                        <i className="bx bx-shopping-bag">
+                          <div className={`header__menu__right__item__count`}>
+                            <Count/>
+                          </div>
+                        </i>
                       </Link>
                     </div>
                     <div className="header__menu__item header__menu__right__item">
@@ -75,5 +87,6 @@ const Header = () => {
     </div>
   )
 }
+
 
 export default Header

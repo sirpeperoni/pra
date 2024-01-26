@@ -6,6 +6,8 @@ import { withRouter } from 'react-router'
 import { useDispatch } from 'react-redux'
 
 import { enqueueSnackbar } from 'notistack';
+import Chart1 from './Chart';
+import Chart from 'chart.js/auto';
 
 
 
@@ -20,6 +22,7 @@ const ProductView = props => {
     const dispatch = useDispatch()
   
     let product = props.product
+
 
     if(product === undefined) product = {
         price: 0,
@@ -128,13 +131,14 @@ const ProductView = props => {
                     Информация о товаре
                 </div>
                 <div className="product-description__content" dangerouslySetInnerHTML={{__html: product.description}}></div>
-                <div className="product-description__toggle" onClick={() => setDescriptionExpand(!descriptionExpand)}>
+
+            </div>
+            <div className="product-description__toggle" onClick={() => setDescriptionExpand(!descriptionExpand)}>
                     <Button size="sm">
                         {
                             descriptionExpand ? "Свернуть" : "Узнать больше"
                         }
                     </Button>
-                </div>
             </div>
         </div>
         
@@ -216,9 +220,10 @@ const ProductView = props => {
                     </Button>
                 </div>
             </div>
-
+            <div className="lineal">
+                <Chart1 prices={product.old_prices}/>
+            </div>
         </div>
-
 
     </div>
 
@@ -229,5 +234,7 @@ const ProductView = props => {
 ProductView.propTypes = {
     product: PropTypes.object
 }
+
+
 
 export default withRouter(ProductView)

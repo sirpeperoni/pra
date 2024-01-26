@@ -34,11 +34,6 @@ const Header = () => {
   return (
     <div className='header' ref={headerRef}>
         <div className="container">
-            <div className="header__logo">
-              <Link to="/">
-                <img src={logo} alt="" />
-              </Link>
-            </div>
             <div className="header__menu">
                 <div className="header__menu__mobile-toggle" onClick={menuToggle}>
                     <i className="bx bx-menu-alt-left"></i>
@@ -47,7 +42,12 @@ const Header = () => {
                     <div className="header__menu__left__close" onClick={menuToggle}>
                         <i className="bx bx-chevron-left"></i>
                     </div>
-                    {
+                    <div className="header__logo">
+                      <Link to="/">
+                        <img src={logo} alt="" />
+                      </Link>
+                    </div>
+                    { 
                       mainNav.map((item, index) => (
                         <div key={index} className={`header__menu__item header__menu__left__item ${index === activeNav ? 'active' : ''}`} onClick={menuToggle}>
                             <Link to={item.path}>

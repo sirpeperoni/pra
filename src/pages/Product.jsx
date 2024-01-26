@@ -12,6 +12,7 @@ const Product = props => {
 
   const product = productData.getProductBySlug(props.match.params.slug)
 
+
   const relatedProducts = productData.getProducts(8)
 
   useEffect(() => {

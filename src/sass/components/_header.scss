@@ -32,13 +32,13 @@
     }
 
     &__logo{
-        @include flex(center, center);
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-
+        margin-right: 30px;
         img{
             height: 28px;
+        }
+        @include tablet{
+            margin-left:  2.425rem; 
+            margin-bottom: 2rem;
         }
     }
 

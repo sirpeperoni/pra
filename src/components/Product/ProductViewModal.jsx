@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import ProductView from './ProductView'
 import Button from '../Button'
 
+import Chart1 from './Chart';
+import Chart from 'chart.js/auto';
+
 import { remove } from '../../redux/product-modal/productModalSlide'
 
 import productData from '../../assets/fake-data/products'

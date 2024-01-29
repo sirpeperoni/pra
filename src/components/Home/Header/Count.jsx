@@ -14,7 +14,7 @@ const Count = () => {
 
     return (
         <div>
-            {totalProducts}
+            {totalProducts > 99 ? "99+" : totalProducts}
         </div>
     )
 }
